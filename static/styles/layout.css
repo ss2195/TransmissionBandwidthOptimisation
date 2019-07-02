@@ -1,0 +1,67 @@
+#myheader{
+color:#ffffff;
+background:#003d99;
+font-size:30px;
+padding:15px;
+
+}
+
+.form{
+background-color:#003d99;
+margin:10px;
+padding:20px;
+}
+
+.ScrollStyle{
+max-height: 350px;
+overflow-y: scroll;
+padding-left:20px;
+border:2px solid #000000;
+
+}
+.table{
+margin-left:20px;
+margin-right:20px;
+margin-top:10px;
+margin-bottom:10px;
+pading:5px;
+}
+
+table.table tr.selected {
+background-color: #e92929 !important;
+color:#fff;
+ }
+
+.popup-overlay {
+visibility:hidden;
+}
+.ui-widget-overlay {
+visibility:hidden;
+}
+
+.popup-content {
+visibility:hidden;
+}
+
+.popup-overlay.active{
+visibility:visible;
+}
+
+.popup-content.active {
+visibility:visible;
+}
+
+
+
+.modal-body .form-horizontal .col-sm-2,
+.modal-body .form-horizontal .col-sm-10 {
+    width: 100%
+}
+
+.modal-body .form-horizontal .control-label {
+    text-align: left;
+}
+.modal-body .form-horizontal .col-sm-offset-2 {
+    margin-left: 15px;
+}
+

@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="row" style="border:2px solid #003d99; padding:20px; margin:5px">
+    <div class="col-md-6">
+        <div class="ScrollStyle" style="height:400px; width:500px">
+            <div id="employee_table">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <form id="form1" target="_blank" action="{{url_for('app_main.getMap')}}" method="POST">
+            <div class="radio">
+                <label><input type="radio" name="opt1" id="0" checked="checked" value="IH">Individual Health</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="opt1" id="1" value="AH">Aggregate Health</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="opt1" id="2" value="PBI">Provisioned B/W (Individual)</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="opt1" id="3" value="PBA">Provisioned B/W (Aggregate)</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="opt1" id="4" value="LBA">Link B/W Analysis</label>
+            </div>
+
+            <div style="background-color:##e1e1ea; border:1px solid #001122; padding:10px">
+                <br>
+                    <label id="message">
+                        Set Health Threshold (0.00-1.00):
+                    </label>
+                <input type="number" name="threshold" id="threshold" step="0.01">
+                    
+                </div>
+            
+            <div>
+                <br>
+                <br>
+                <div class="btn-group btn-group-block">
+                    <button type="button" name="filter" id="load" class="btn btn-space btn-primary" style="margin:2px">
+                        Filter
+                    </button>
+                    <button type="button" name="download" id="download" value="csv" class="btn btn-space btn-primary"
+                            style="margin:2px">Get CSV
+                    </button>
+
+                    <button type="button" name="funct" id="graph" value="graph" class="btn btn-space btn-primary"
+                             data-target="#myModalHorizontal" style="margin:2px">Graph
+                    </button>
+                    <button type="submit" name="funct" id="map" value="map" class="btn btn-space btn-primary"
+                            style="margin:2px">Map
+                    </button>
+
+                </div>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="opt2" value="TDD" checked>TDD</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="opt2" value="FDD">FDD</label>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModalHorizontal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header" style="background:#993333;color:white;">
+                <button type="button" class="close"
+                   data-dismiss="modal">
+                       <span aria-hidden="true">&times;</span>
+                       <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel" style="text-align:center;">
+                    Choose an option
+                </h4>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+
+                <form target="_blank" class="form-horizontal" action="{{url_for('app_main.getGraph') }}" role="form" method="POST">
+
+                    <div class="form-group" style="border:2px solid #993333 ;border-radius:10px; padding:20px; margin:20px;font-size:15px;">
+                        <label class="col-sm-2 control-label" style="padding:5px; ">
+                            <input type="radio" name="opt3" value="0" checked style="margin-right:10px;"/>
+                            S1 Interface
+                        </label>
+
+                        <label class="col-sm-2 control-label" style="padding:5px">
+                            <input type="radio" name="opt3" value="1" style="margin-right:10px;"/>
+                            X2 Interface:
+                        </label>
+
+                        <label class="col-sm-2 control-label" style="padding:5px">
+                            <input type="radio" name="opt3" value="2" style="margin-right:10px;"/>
+                            PCDP Data Rate
+                        </label>
+
+                        <label class="col-sm-2 control-label" style="padding:5px">
+                            <input type="radio" name="opt3" value="3" style="margin-right:10px;"/>
+                            Max UE Transmission
+                        </label>
+                        <br><br>
+                        <div class="col-sm-offset-2 col-sm-10" style="margin-top:20px;">
+                            <button type="submit" id="getgraph" class="btn btn-default btn-primary">Submit</button>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer" >
+                <button type="button" class="btn btn-default btn-danger"
+                        data-dismiss="modal">
+                            Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{url_for('static',filename='js/analysis.js')}}"></script>
+
+{% endblock %}
+

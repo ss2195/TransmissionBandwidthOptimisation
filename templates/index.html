@@ -1,0 +1,78 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="row" style="border:2px solid #003d99; margin:5px; padding:10px">
+    <h2 style="padding-left:45px"> Please select the files</h2>
+    <br>
+    <div style="padding:5px">
+        <form action="{{ url_for('app_main.upload') }}" method="POST" enctype="multipart/form-data">
+            <div class="row" style="margin:5px">
+                <div class="col-md-6">
+                    <div class="form-group"
+                         style="background-color:#d1d1e0; padding-left:25px;padding-top:5px;padding-bottom:5px; border-radius:5px">
+                        <label for="pcm">PCM path file:</label>
+                        <input type="file" class="form-control-file" id="pcm" name="pcm">
+                    </div>
+                    <div class="form-group"
+                         style="background-color:#d1d1e0; padding-left:25px;padding-top:5px;padding-bottom:5px; border-radius:5px">
+                        <label for="coord">Coordinate file:</label>
+                        <input type="file" class="form-control-file" id="coord" name="coord">
+                    </div>
+
+                    <div class="form-group"
+                         style="background-color:#d1d1e0; padding-left:25px;padding-top:5px;padding-bottom:5px; border-radius:5px">
+                        <label for="lpf">Link path file:</label>
+                        <input type="file" class="form-control-file" id="lpf" name="lpf">
+                    </div>
+
+                    <div class="form-group"
+                         style="background-color:#d1d1e0; padding-left:25px;padding-top:5px;padding-bottom:5px; border-radius:5px">
+                        <label for="kpi">KPI files:</label>
+                        <input type="file" class="form-control-file" id="kpi" name="kpi" multiple>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6"
+                     style="background-color:#d1d1e0; padding-left:25px;padding-top:5px;padding-bottom:5px; border-radius:5px">
+                    <br>
+                    <div class="checkbox" style="margin:5px">
+                        <label><input type="checkbox" name="hc" value=True>Hard Clean</label>
+                    </div>
+
+                    <div class="checkbox" style="margin:5px">
+                        <label><input type="checkbox" name="ull" value=True>Update Lat Long</label>
+                    </div>
+                    <br>
+                    <div style="margin:5px">
+                        <label>
+                            Start Date <br/>
+                            <input type="date" name="start_dt" placeholder="DD/MM/YYYY"/>
+                        </label>
+
+                        <label>
+                            End Date <br/>
+                            <input type="date" name="end_dt" placeholder="DD/MM/YYYY"/>
+                        </label>
+                    </div>
+
+                    <div class="btn-group btn-group-inline">
+                        <input type="submit" class="btn btn-primary" name="demo" value="Load Data"
+                           style="margin-bottom:38px;margin-top:40px; margin-left:5px;margin-right:5px"/>
+                        <input type="submit" class="btn btn-primary" name="demo" value="Load Data (new format)"
+                            style="margin-bottom:38px;margin-top:40px; margin-left:5px;margin-right:5px"/>
+                    </div>
+
+                </div>
+            </div>
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+{% endblock %}
