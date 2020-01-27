@@ -21,9 +21,9 @@ steps:
 
 - script: |
     python -m pip install --upgrade pip
-    pip install -r requirements.txt
-    pwd
-    ls
+    # pip install -r requirements.txt
+    # pwd
+    # ls
   displayName: 'Install dependencies'
 
 # - script: |
@@ -38,7 +38,7 @@ steps:
 
 - script:
     npm install -g newman
-    newman run testing_requests.postman_collection.json --reporters cli,junit --reporter-junit-export Results\junitReport.xml
+    newman run testing_requests.postman_collection.json
 
 
 
