@@ -26,7 +26,7 @@ def test_stopContainers():
     res_code = res.status_code
     res_json = res.json()
     print(res_json)
-    assert res_code == 300
+    assert res_code == 200
     assert res_json['Status'] == 'Success'
 
 def test_startContainers():
