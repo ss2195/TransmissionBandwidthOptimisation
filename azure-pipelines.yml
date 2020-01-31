@@ -21,15 +21,15 @@ steps:
 
 - script: |
     python -m pip install --upgrade pip
-    # pip install -r requirements.txt
-    # pwd
-    # ls
+    pip install -r requirements.txt
+    pwd
+    ls
   displayName: 'Install dependencies'
 
-# - script: |
-#     pip install pytest pytest-azurepipelines
-#     pytest
-#   displayName: 'pytest'
+- script: |
+    pip install pytest pytest-azurepipelines
+    pytest pytest/
+  displayName: 'pytest'
 
 # - task: NodeTool@0
 #   inputs:
