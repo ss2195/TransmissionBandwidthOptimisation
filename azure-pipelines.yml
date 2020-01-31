@@ -32,15 +32,6 @@ steps:
     pytest
   displayName: 'pytest'
 
-# - task: NodeTool@0
-#   inputs:
-#     versionSpec: '8.x'
-#   displayName: 'Use node version 8.x'
-
-# - script:
-#     npm install -g newman
-#     newman run testing_requests.postman_collection.json
-
 
 
 
