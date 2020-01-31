@@ -28,7 +28,8 @@ steps:
 
 - script: |
     pip install pytest pytest-azurepipelines
-    pytest pytest/
+    cd TestCases
+    pytest
   displayName: 'pytest'
 
 # - task: NodeTool@0
